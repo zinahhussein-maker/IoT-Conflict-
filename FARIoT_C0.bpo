@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="VALUE" org.eventb.core.type="ℙ(VALUE)"/>
+        <org.eventb.core.poIdentifier name="DEVICE" org.eventb.core.type="ℙ(DEVICE)"/>
+        <org.eventb.core.poIdentifier name="OWNER" org.eventb.core.type="ℙ(OWNER)"/>
+        <org.eventb.core.poIdentifier name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+        <org.eventb.core.poIdentifier name="act_dev" org.eventb.core.type="ℙ(RULE×DEVICE)"/>
+        <org.eventb.core.poIdentifier name="humidifier" org.eventb.core.type="DEVICE"/>
+        <org.eventb.core.poIdentifier name="UNLOCKED" org.eventb.core.type="VALUE"/>
+        <org.eventb.core.poIdentifier name="LOCKED" org.eventb.core.type="VALUE"/>
+        <org.eventb.core.poIdentifier name="OFF" org.eventb.core.type="VALUE"/>
+        <org.eventb.core.poIdentifier name="rule_owner" org.eventb.core.type="ℙ(RULE×OWNER)"/>
+        <org.eventb.core.poIdentifier name="heater" org.eventb.core.type="DEVICE"/>
+        <org.eventb.core.poIdentifier name="ON" org.eventb.core.type="VALUE"/>
+        <org.eventb.core.poIdentifier name="door_lock" org.eventb.core.type="DEVICE"/>
+        <org.eventb.core.poIdentifier name="vendor_default" org.eventb.core.type="OWNER"/>
+        <org.eventb.core.poIdentifier name="fan" org.eventb.core.type="DEVICE"/>
+        <org.eventb.core.poIdentifier name="ac" org.eventb.core.type="DEVICE"/>
+        <org.eventb.core.poIdentifier name="rule_priority" org.eventb.core.type="ℙ(RULE×ℤ)"/>
+        <org.eventb.core.poIdentifier name="act_val" org.eventb.core.type="ℙ(RULE×VALUE)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="axm8/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Axiom" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_C0.bpo|org.eventb.core.poFile#FARIoT_C0|org.eventb.core.poPredicateSet#HYP-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀r⦂RULE·r∈RULE⇒r∈dom(act_dev)∧act_dev∈RULE ⇸ DEVICE∧r∈dom(act_val)∧act_val∈RULE ⇸ VALUE" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_26"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_26"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_C0.bpo|org.eventb.core.poFile#FARIoT_C0|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/FARIoT/FARIoT_C0.bpo|org.eventb.core.poFile#FARIoT_C0|org.eventb.core.poPredicateSet#HYP-"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="HYP-" org.eventb.core.parentSet="/FARIoT/FARIoT_C0.bpo|org.eventb.core.poFile#FARIoT_C0|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="partition(DEVICE,{fan},{heater},{door_lock},{ac},{humidifier})" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_19"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="partition(VALUE,{ON},{OFF},{LOCKED},{UNLOCKED})" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_20"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="vendor_default∈OWNER" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_21"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="act_dev∈RULE → DEVICE" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_22"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="act_val∈RULE → VALUE" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_23"/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="rule_owner∈RULE → OWNER" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_24"/>
+        <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="rule_priority∈RULE → ℕ" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_25"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_C0.bpo|org.eventb.core.poFile#FARIoT_C0|org.eventb.core.poPredicateSet#HYP-" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD7" org.eventb.core.predicate="∀r⦂RULE·r∈RULE⇒(act_dev(r)=door_lock⇔act_val(r)∈{LOCKED,UNLOCKED})" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_26"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

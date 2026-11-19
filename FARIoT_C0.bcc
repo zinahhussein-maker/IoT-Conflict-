@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase">
+    <org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(DEVICE,{fan},{heater},{door_lock},{ac},{humidifier})" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_19" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name="(" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(VALUE,{ON},{OFF},{LOCKED},{UNLOCKED})" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_20" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name=")" org.eventb.core.label="axm3" org.eventb.core.predicate="vendor_default∈OWNER" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_21" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name="*" org.eventb.core.label="axm4" org.eventb.core.predicate="act_dev∈RULE → DEVICE" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_22" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name="+" org.eventb.core.label="axm5" org.eventb.core.predicate="act_val∈RULE → VALUE" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_23" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name="," org.eventb.core.label="axm6" org.eventb.core.predicate="rule_owner∈RULE → OWNER" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_24" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name="-" org.eventb.core.label="axm7" org.eventb.core.predicate="rule_priority∈RULE → ℕ" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_25" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name="." org.eventb.core.label="axm8" org.eventb.core.predicate="∀r⦂RULE·r∈RULE⇒(act_dev(r)=door_lock⇔act_val(r)∈{LOCKED,UNLOCKED})" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_26" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scConstant name="act_dev" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.constant#_15" org.eventb.core.type="ℙ(RULE×DEVICE)"/>
+    <org.eventb.core.scConstant name="humidifier" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.constant#_9" org.eventb.core.type="DEVICE"/>
+    <org.eventb.core.scConstant name="UNLOCKED" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.constant#_13" org.eventb.core.type="VALUE"/>
+    <org.eventb.core.scConstant name="LOCKED" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.constant#_12" org.eventb.core.type="VALUE"/>
+    <org.eventb.core.scConstant name="OFF" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.constant#_11" org.eventb.core.type="VALUE"/>
+    <org.eventb.core.scConstant name="rule_owner" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.constant#_17" org.eventb.core.type="ℙ(RULE×OWNER)"/>
+    <org.eventb.core.scConstant name="heater" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.constant#_6" org.eventb.core.type="DEVICE"/>
+    <org.eventb.core.scConstant name="ON" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.constant#_10" org.eventb.core.type="VALUE"/>
+    <org.eventb.core.scConstant name="door_lock" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.constant#_7" org.eventb.core.type="DEVICE"/>
+    <org.eventb.core.scConstant name="vendor_default" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.constant#_14" org.eventb.core.type="OWNER"/>
+    <org.eventb.core.scConstant name="fan" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.constant#_5" org.eventb.core.type="DEVICE"/>
+    <org.eventb.core.scConstant name="ac" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.constant#_8" org.eventb.core.type="DEVICE"/>
+    <org.eventb.core.scConstant name="rule_priority" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.constant#_18" org.eventb.core.type="ℙ(RULE×ℤ)"/>
+    <org.eventb.core.scCarrierSet name="VALUE" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.carrierSet#_2" org.eventb.core.type="ℙ(VALUE)"/>
+    <org.eventb.core.scCarrierSet name="DEVICE" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.carrierSet#_1" org.eventb.core.type="ℙ(DEVICE)"/>
+    <org.eventb.core.scCarrierSet name="OWNER" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.carrierSet#_3" org.eventb.core.type="ℙ(OWNER)"/>
+    <org.eventb.core.scCarrierSet name="RULE" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.carrierSet#_4" org.eventb.core.type="ℙ(RULE)"/>
+    <org.eventb.core.scConstant name="act_val" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.constant#_16" org.eventb.core.type="ℙ(RULE×VALUE)"/>
+</org.eventb.core.scContextFile>

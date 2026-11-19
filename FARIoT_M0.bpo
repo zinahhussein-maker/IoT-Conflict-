@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="27">
+    <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="VALUE" org.eventb.core.type="ℙ(VALUE)"/>
+        <org.eventb.core.poIdentifier name="DEVICE" org.eventb.core.type="ℙ(DEVICE)"/>
+        <org.eventb.core.poIdentifier name="OWNER" org.eventb.core.type="ℙ(OWNER)"/>
+        <org.eventb.core.poIdentifier name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+        <org.eventb.core.poIdentifier name="act_dev" org.eventb.core.type="ℙ(RULE×DEVICE)"/>
+        <org.eventb.core.poIdentifier name="humidifier" org.eventb.core.type="DEVICE"/>
+        <org.eventb.core.poIdentifier name="UNLOCKED" org.eventb.core.type="VALUE"/>
+        <org.eventb.core.poIdentifier name="LOCKED" org.eventb.core.type="VALUE"/>
+        <org.eventb.core.poIdentifier name="OFF" org.eventb.core.type="VALUE"/>
+        <org.eventb.core.poIdentifier name="rule_owner" org.eventb.core.type="ℙ(RULE×OWNER)"/>
+        <org.eventb.core.poIdentifier name="heater" org.eventb.core.type="DEVICE"/>
+        <org.eventb.core.poIdentifier name="ON" org.eventb.core.type="VALUE"/>
+        <org.eventb.core.poIdentifier name="door_lock" org.eventb.core.type="DEVICE"/>
+        <org.eventb.core.poIdentifier name="vendor_default" org.eventb.core.type="OWNER"/>
+        <org.eventb.core.poIdentifier name="fan" org.eventb.core.type="DEVICE"/>
+        <org.eventb.core.poIdentifier name="ac" org.eventb.core.type="DEVICE"/>
+        <org.eventb.core.poIdentifier name="rule_priority" org.eventb.core.type="ℙ(RULE×ℤ)"/>
+        <org.eventb.core.poIdentifier name="act_val" org.eventb.core.type="ℙ(RULE×VALUE)"/>
+        <org.eventb.core.poPredicate name="vendor_defaulu" org.eventb.core.predicate="partition(DEVICE,{fan},{heater},{door_lock},{ac},{humidifier})" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_19"/>
+        <org.eventb.core.poPredicate name="vendor_defaulv" org.eventb.core.predicate="partition(VALUE,{ON},{OFF},{LOCKED},{UNLOCKED})" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_20"/>
+        <org.eventb.core.poPredicate name="vendor_defaulw" org.eventb.core.predicate="vendor_default∈OWNER" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_21"/>
+        <org.eventb.core.poPredicate name="vendor_defaulx" org.eventb.core.predicate="act_dev∈RULE → DEVICE" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_22"/>
+        <org.eventb.core.poPredicate name="vendor_defauly" org.eventb.core.predicate="act_val∈RULE → VALUE" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_23"/>
+        <org.eventb.core.poPredicate name="vendor_defaulz" org.eventb.core.predicate="rule_owner∈RULE → OWNER" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_24"/>
+        <org.eventb.core.poPredicate name="vendor_defaul{" org.eventb.core.predicate="rule_priority∈RULE → ℕ" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_25"/>
+        <org.eventb.core.poPredicate name="vendor_defaul|" org.eventb.core.predicate="∀r⦂RULE·r∈RULE⇒(act_dev(r)=door_lock⇔act_val(r)∈{LOCKED,UNLOCKED})" org.eventb.core.source="/FARIoT/FARIoT_C0.buc|org.eventb.core.contextFile#FARIoT_C0|org.eventb.core.axiom#_26"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="state" org.eventb.core.type="ℙ(DEVICE×VALUE)"/>
+        <org.eventb.core.poIdentifier name="armed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="away_mode" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="humid_high" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="inv5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#HYPFARIoT_C4"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="fan∈dom(state)∧state∈DEVICE ⇸ VALUE∧(state(fan)=ON⇒heater∈dom(state))" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_10"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_10"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#HYPFARIoT_C4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="inv7/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#HYPFARIoT_C6"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀d⦂DEVICE·d∈DEVICE∧d=door_lock⇒d∈dom(state)∧state∈DEVICE ⇸ VALUE" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_12"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_12"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#HYPFARIoT_C6"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="20">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTALLHYPhumid_higi"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{fan ↦ OFF,heater ↦ OFF,door_lock ↦ LOCKED,ac ↦ OFF,humidifier ↦ OFF}∈DEVICE → VALUE" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_6"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_13"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_6"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poSequent#INITIALISATION\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#HYPFARIoT_C4|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTALLHYPhumid_higi"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{fan ↦ OFF,heater ↦ OFF,door_lock ↦ LOCKED,ac ↦ OFF,humidifier ↦ OFF}(fan)=ON⇒{fan ↦ OFF,heater ↦ OFF,door_lock ↦ LOCKED,ac ↦ OFF,humidifier ↦ OFF}(heater)≠ON" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_10"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_13"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_10"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poSequent#INITIALISATION\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#HYPFARIoT_C6|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="20">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTALLHYPhumid_higi"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE=TRUE⇒FALSE=TRUE" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_11"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_13"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_11"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poSequent#INITIALISATION\/inv6\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#HYPFARIoT_C6|org.eventb.core.poPredicate#PRD5"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="20">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTALLHYPhumid_higi"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀d⦂DEVICE·d∈DEVICE⇒(d=door_lock⇒{fan ↦ OFF,heater ↦ OFF,door_lock ↦ LOCKED,ac ↦ OFF,humidifier ↦ OFF}(d)∈{LOCKED,UNLOCKED})" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_12"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_13"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_12"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poSequent#INITIALISATION\/inv7\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD6"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENThumid_higi" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="away_mode'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="humid_high'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="armed'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="state'" org.eventb.core.type="ℙ(DEVICE×VALUE)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPhumid_higi" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTIDENThumid_higi" org.eventb.core.poStamp="0"/>
+    <org.eventb.core.poSequent name="Actuate/grd5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTHYPhumid_higj*"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="fan∈dom(ns)∧ns∈DEVICE ⇸ VALUE∧(ns(fan)=ON⇒heater∈dom(ns))" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_18|org.eventb.core.guard#_26"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_18|org.eventb.core.guard#_26"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTHYPhumid_higj*"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="Actuate/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTALLHYPhumid_higj"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="ns∈DEVICE → VALUE" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_6"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_18"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_6"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poSequent#Actuate\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#HYPFARIoT_C4|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="Actuate/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTALLHYPhumid_higj"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="ns(fan)=ON⇒ns(heater)≠ON" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_10"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_18"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_10"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poSequent#Actuate\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#HYPFARIoT_C6|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="Actuate/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTALLHYPhumid_higj"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀d⦂DEVICE·d∈DEVICE⇒(d=door_lock⇒ns(d)∈{LOCKED,UNLOCKED})" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_12"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_18"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_12"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poSequent#Actuate\/inv7\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD6"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENThumid_higj" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="27">
+        <org.eventb.core.poIdentifier name="ns" org.eventb.core.type="ℙ(DEVICE×VALUE)"/>
+        <org.eventb.core.poIdentifier name="v" org.eventb.core.type="VALUE"/>
+        <org.eventb.core.poIdentifier name="d" org.eventb.core.type="DEVICE"/>
+        <org.eventb.core.poIdentifier name="state'" org.eventb.core.type="ℙ(DEVICE×VALUE)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPhumid_higj*" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTIDENThumid_higj" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="d∈DEVICE" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_18|org.eventb.core.guard#_22"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="v∈VALUE" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_18|org.eventb.core.guard#_23"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="d=door_lock⇔v∈{LOCKED,UNLOCKED}" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_18|org.eventb.core.guard#_24"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="ns=state{d ↦ v}" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_18|org.eventb.core.guard#_25"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPhumid_higj" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTHYPhumid_higj*" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="ns(fan)=ON⇒ns(heater)≠ON" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_18|org.eventb.core.guard#_26"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="ArmAway/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTALLHYPhumid_higk"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="state{door_lock ↦ LOCKED}∈DEVICE → VALUE" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_6"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_28"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_6"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poSequent#ArmAway\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#HYPFARIoT_C4|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="ArmAway/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTALLHYPhumid_higk"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(state{door_lock ↦ LOCKED})(fan)=ON⇒(state{door_lock ↦ LOCKED})(heater)≠ON" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_10"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_28"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_10"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poSequent#ArmAway\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#HYPFARIoT_C6|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="ArmAway/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTALLHYPhumid_higk"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="away_mode=TRUE⇒TRUE=TRUE" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_11"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_28"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_11"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poSequent#ArmAway\/inv6\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#HYPFARIoT_C6|org.eventb.core.poPredicate#PRD5"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="ArmAway/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTALLHYPhumid_higk"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀d⦂DEVICE·d∈DEVICE⇒(d=door_lock⇒(state{door_lock ↦ LOCKED})(d)∈{LOCKED,UNLOCKED})" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_12"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_28"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_12"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poSequent#ArmAway\/inv7\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD6"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENThumid_higk" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="27">
+        <org.eventb.core.poIdentifier name="armed'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="state'" org.eventb.core.type="ℙ(DEVICE×VALUE)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPhumid_higk" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTIDENThumid_higk" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="armed=FALSE" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_28|org.eventb.core.guard#_29"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="EnterAway/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTALLHYPhumid_higl"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="TRUE=TRUE⇒armed=TRUE" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_11"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_32"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_11"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poSequent#EnterAway\/inv6\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#HYPFARIoT_C6|org.eventb.core.poPredicate#PRD5"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENThumid_higl" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="27">
+        <org.eventb.core.poIdentifier name="away_mode'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPhumid_higl" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTIDENThumid_higl" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="armed=TRUE" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_32|org.eventb.core.guard#_33"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="away_mode=FALSE" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_32|org.eventb.core.guard#_34"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="Disarm/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTALLHYPhumid_higm"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE=TRUE⇒FALSE=TRUE" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_11"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_36"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_11"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poSequent#Disarm\/inv6\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#HYPFARIoT_C6|org.eventb.core.poPredicate#PRD5"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENThumid_higm" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="27">
+        <org.eventb.core.poIdentifier name="away_mode'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="armed'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPhumid_higm" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTIDENThumid_higm" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="armed=TRUE" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_36|org.eventb.core.guard#_37"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENThumid_hign" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="27">
+        <org.eventb.core.poIdentifier name="humid_high'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="h" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPhumid_hign" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#EVTIDENThumid_hign" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="h∈BOOL" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.event#_40|org.eventb.core.guard#_42"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYPFARIoT_C4" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="state∈DEVICE → VALUE" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_6"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="away_mode∈BOOL" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_7"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="armed∈BOOL" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_8"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="humid_high∈BOOL" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_9"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYPFARIoT_C6" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#HYPFARIoT_C4" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="state(fan)=ON⇒state(heater)≠ON" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_10"/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="away_mode=TRUE⇒armed=TRUE" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_11"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/FARIoT/FARIoT_M0.bpo|org.eventb.core.poFile#FARIoT_M0|org.eventb.core.poPredicateSet#HYPFARIoT_C6" org.eventb.core.poStamp="27">
+        <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="∀d⦂DEVICE·d∈DEVICE⇒(d=door_lock⇒state(d)∈{LOCKED,UNLOCKED})" org.eventb.core.source="/FARIoT/FARIoT_M0.bum|org.eventb.core.machineFile#FARIoT_M0|org.eventb.core.invariant#_12"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

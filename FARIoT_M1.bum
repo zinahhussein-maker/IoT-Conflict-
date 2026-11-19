@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.refinesMachine name="_1" org.eventb.core.target="FARIoT_M0"/>
+    <org.eventb.core.seesContext name="_2" org.eventb.core.target="FARIoT_C0"/>
+    <org.eventb.core.variable name="_3" org.eventb.core.identifier="state"/>
+    <org.eventb.core.variable name="_4" org.eventb.core.identifier="away_mode"/>
+    <org.eventb.core.variable name="_5" org.eventb.core.identifier="armed"/>
+    <org.eventb.core.variable name="_6" org.eventb.core.identifier="humid_high"/>
+    <org.eventb.core.variable name="_7" org.eventb.core.identifier="triggered"/>
+    <org.eventb.core.variable name="_8" org.eventb.core.identifier="winner"/>
+    <org.eventb.core.invariant name="_9" org.eventb.core.label="inv8" org.eventb.core.predicate="triggered ⊆ RULE" org.eventb.core.theorem="false"/>
+    <org.eventb.core.invariant name="_10" org.eventb.core.label="inv9" org.eventb.core.predicate="winner ∈ RULE" org.eventb.core.theorem="false"/>
+    <org.eventb.core.event name="_11" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_12" org.eventb.core.assignment="triggered ≔ ∅" org.eventb.core.label="act5"/>
+        <org.eventb.core.action name="_13" org.eventb.core.assignment="winner :∈ RULE" org.eventb.core.label="act6"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_14" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="TriggerRules">
+        <org.eventb.core.parameter name="_15" org.eventb.core.identifier="r"/>
+        <org.eventb.core.guard name="_16" org.eventb.core.label="grd1" org.eventb.core.predicate="r ∈ RULE ∖ triggered" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_17" org.eventb.core.label="grd2" org.eventb.core.predicate="∀q1,q2· q1 ∈ triggered ∧ q2 ∈ triggered ⇒ q1 = q2" org.eventb.core.theorem="false"/>
+        <org.eventb.core.action name="_18" org.eventb.core.assignment="triggered ≔ triggered ∪ {r}" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_19" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="ResolveConflict">
+        <org.eventb.core.refinesEvent name="_20" org.eventb.core.target="Actuate"/>
+        <org.eventb.core.parameter name="_21" org.eventb.core.identifier="r1"/>
+        <org.eventb.core.parameter name="_22" org.eventb.core.identifier="r2"/>
+        <org.eventb.core.parameter name="_23" org.eventb.core.identifier="chosen"/>
+        <org.eventb.core.parameter name="_24" org.eventb.core.identifier="ns"/>
+        <org.eventb.core.guard name="_25" org.eventb.core.label="grd1" org.eventb.core.predicate="r1 ∈ triggered ∧ r2 ∈ triggered ∧ r1 ≠ r2" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_26" org.eventb.core.label="grd2" org.eventb.core.predicate="act_dev(r1) = act_dev(r2)" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_27" org.eventb.core.label="grd3" org.eventb.core.predicate="act_val(r1) ≠ act_val(r2)" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_28" org.eventb.core.label="grd4" org.eventb.core.predicate="chosen ∈ {r1, r2}" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_29" org.eventb.core.label="grd5" org.eventb.core.predicate="ns = state  {act_dev(chosen) ↦ act_val(chosen)}" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_31" org.eventb.core.label="grd7" org.eventb.core.predicate="humid_high = TRUE ∧ ns(ac) = ON ⇒ ns(humidifier) ≠ ON" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_32" org.eventb.core.label="grd8" org.eventb.core.predicate="away_mode = TRUE ⇒ ns(door_lock) = LOCKED" org.eventb.core.theorem="false"/>
+        <org.eventb.core.witness name="_33" org.eventb.core.label="d" org.eventb.core.predicate="d = act_dev(chosen)"/>
+        <org.eventb.core.witness name="_34" org.eventb.core.label="v" org.eventb.core.predicate="v = act_val(chosen)"/>
+        <org.eventb.core.action name="_35" org.eventb.core.assignment="state ≔ ns" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_36" org.eventb.core.assignment="winner ≔ chosen" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="_37" org.eventb.core.assignment="triggered ≔ triggered ∖ {r1, r2}" org.eventb.core.label="act3"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_38" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="ApplyRule">
+        <org.eventb.core.refinesEvent name="_39" org.eventb.core.target="Actuate"/>
+        <org.eventb.core.parameter name="_40" org.eventb.core.identifier="r"/>
+        <org.eventb.core.parameter name="_41" org.eventb.core.identifier="ns"/>
+        <org.eventb.core.guard name="_42" org.eventb.core.label="grd1" org.eventb.core.predicate="r ∈ triggered" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_43" org.eventb.core.label="grd2" org.eventb.core.predicate="∀q· q ∈ triggered ∧ act_dev(q) = act_dev(r) ⇒ act_val(q) = act_val(r)" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_44" org.eventb.core.label="grd3" org.eventb.core.predicate="ns = state  {act_dev(r) ↦ act_val(r)}" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_45" org.eventb.core.label="grd4" org.eventb.core.predicate="ns(fan) = ON ⇒ ns(heater) ≠ ON" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_46" org.eventb.core.label="grd5" org.eventb.core.predicate="humid_high = TRUE ∧ ns(ac) = ON ⇒ ns(humidifier) ≠ ON" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_47" org.eventb.core.label="grd6" org.eventb.core.predicate="away_mode = TRUE ⇒ ns(door_lock) = LOCKED" org.eventb.core.theorem="false"/>
+        <org.eventb.core.witness name="_48" org.eventb.core.label="d" org.eventb.core.predicate="d = act_dev(r)"/>
+        <org.eventb.core.witness name="_49" org.eventb.core.label="v" org.eventb.core.predicate="v = act_val(r)"/>
+        <org.eventb.core.action name="_50" org.eventb.core.assignment="state ≔ ns" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_51" org.eventb.core.assignment="triggered ≔ triggered ∖ {r}" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_52" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="DeferConflict">
+        <org.eventb.core.parameter name="_53" org.eventb.core.identifier="r1"/>
+        <org.eventb.core.parameter name="_54" org.eventb.core.identifier="r2"/>
+        <org.eventb.core.guard name="_55" org.eventb.core.label="grd1" org.eventb.core.predicate="r1 ∈ triggered ∧ r2 ∈ triggered ∧ r1 ≠ r2" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_56" org.eventb.core.label="grd2" org.eventb.core.predicate="act_dev(r1) = act_dev(r2)" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_57" org.eventb.core.label="grd3" org.eventb.core.predicate="act_val(r1) ≠ act_val(r2)" org.eventb.core.theorem="false"/>
+        <org.eventb.core.action name="_58" org.eventb.core.assignment="triggered ≔ triggered ∖ {r1, r2}" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_59" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="DropRule">
+        <org.eventb.core.parameter name="_60" org.eventb.core.identifier="r"/>
+        <org.eventb.core.guard name="_61" org.eventb.core.label="grd1" org.eventb.core.predicate="r ∈ triggered" org.eventb.core.theorem="false"/>
+        <org.eventb.core.action name="_62" org.eventb.core.assignment="triggered ≔ triggered ∖ {r}" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_63" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="ArmAway">
+        <org.eventb.core.refinesEvent name="_64" org.eventb.core.target="ArmAway"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_65" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="EnterAway">
+        <org.eventb.core.refinesEvent name="_66" org.eventb.core.target="EnterAway"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_67" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Disarm">
+        <org.eventb.core.refinesEvent name="_68" org.eventb.core.target="Disarm"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_69" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SetHumidity">
+        <org.eventb.core.refinesEvent name="_70" org.eventb.core.target="SetHumidity"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>

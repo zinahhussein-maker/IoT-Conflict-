@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.refinesMachine name="_1" org.eventb.core.target="FARIoT_M2"/>
+    <org.eventb.core.seesContext name="_2" org.eventb.core.target="FARIoT_C1"/>
+    <org.eventb.core.variable name="_3" org.eventb.core.identifier="state"/>
+    <org.eventb.core.variable name="_4" org.eventb.core.identifier="away_mode"/>
+    <org.eventb.core.variable name="_5" org.eventb.core.identifier="armed"/>
+    <org.eventb.core.variable name="_6" org.eventb.core.identifier="humid_high"/>
+    <org.eventb.core.variable name="_7" org.eventb.core.identifier="triggered"/>
+    <org.eventb.core.variable name="_8" org.eventb.core.identifier="winner"/>
+    <org.eventb.core.variable name="_9" org.eventb.core.identifier="theta"/>
+    <org.eventb.core.variable name="_10" org.eventb.core.identifier="pending_theta"/>
+    <org.eventb.core.variable name="_11" org.eventb.core.identifier="upd_pending"/>
+    <org.eventb.core.invariant name="_12" org.eventb.core.label="inv12" org.eventb.core.predicate="theta ∈ Theta_safe" org.eventb.core.theorem="false"/>
+    <org.eventb.core.invariant name="_13" org.eventb.core.label="inv13" org.eventb.core.predicate="pending_theta ∈ THETA" org.eventb.core.theorem="false"/>
+    <org.eventb.core.invariant name="_14" org.eventb.core.label="inv14" org.eventb.core.predicate="upd_pending ∈ BOOL" org.eventb.core.theorem="false"/>
+    <org.eventb.core.invariant name="_15" org.eventb.core.label="thm3" org.eventb.core.predicate="∀a,b· a ∈ RULE ∧ b ∈ RULE ∧ act_dev(a) = door_lock ∧ act_dev(b) = door_lock ∧ act_val(a) = LOCKED ∧ act_val(b) = UNLOCKED ⇒ pref(theta ↦ a ↦ b) = a ∧ pref(theta ↦ b ↦ a) = a" org.eventb.core.theorem="true"/>
+    <org.eventb.core.event name="_16" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_17" org.eventb.core.assignment="theta ≔ theta0" org.eventb.core.label="act7"/>
+        <org.eventb.core.action name="_18" org.eventb.core.assignment="pending_theta ≔ theta0" org.eventb.core.label="act8"/>
+        <org.eventb.core.action name="_19" org.eventb.core.assignment="upd_pending ≔ FALSE" org.eventb.core.label="act9"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_20" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="TriggerRules">
+        <org.eventb.core.refinesEvent name="_21" org.eventb.core.target="TriggerRules"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_22" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="ResolveByPolicy">
+        <org.eventb.core.refinesEvent name="_23" org.eventb.core.target="ResolveConflict"/>
+        <org.eventb.core.guard name="_24" org.eventb.core.label="grd11" org.eventb.core.predicate="chosen = pref(theta ↦ r1 ↦ r2)" org.eventb.core.theorem="false"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_25" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="FallbackResolve">
+        <org.eventb.core.refinesEvent name="_26" org.eventb.core.target="ResolveConflict"/>
+        <org.eventb.core.parameter name="_27" org.eventb.core.identifier="p"/>
+        <org.eventb.core.parameter name="_28" org.eventb.core.identifier="np"/>
+        <org.eventb.core.guard name="_29" org.eventb.core.label="grd11" org.eventb.core.predicate="p = pref(theta ↦ r1 ↦ r2)" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_30" org.eventb.core.label="grd12" org.eventb.core.predicate="chosen ≠ p" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_31" org.eventb.core.label="grd13" org.eventb.core.predicate="np = state  {act_dev(p) ↦ act_val(p)}" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_32" org.eventb.core.label="grd14" org.eventb.core.predicate="¬((np(fan) = ON ⇒ np(heater) ≠ ON) ∧ (humid_high = TRUE ∧ np(ac) = ON ⇒ np(humidifier) ≠ ON) ∧ (away_mode = TRUE ⇒ np(door_lock) = LOCKED) ∧ (armed = TRUE ⇒ np(door_lock) = LOCKED) ∧ (np(ac) = ON ⇒ np(humidifier) ≠ ON))" org.eventb.core.theorem="false"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_33" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="ApplyRule">
+        <org.eventb.core.refinesEvent name="_34" org.eventb.core.target="ApplyRule"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_35" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="DeferConflict">
+        <org.eventb.core.refinesEvent name="_36" org.eventb.core.target="DeferConflict"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_37" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="DropRule">
+        <org.eventb.core.refinesEvent name="_38" org.eventb.core.target="DropRule"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_39" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="ProposeThetaUpdate">
+        <org.eventb.core.parameter name="_40" org.eventb.core.identifier="cand"/>
+        <org.eventb.core.guard name="_41" org.eventb.core.label="grd1" org.eventb.core.predicate="upd_pending = FALSE" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_42" org.eventb.core.label="grd2" org.eventb.core.predicate="cand ∈ THETA" org.eventb.core.theorem="false"/>
+        <org.eventb.core.action name="_43" org.eventb.core.assignment="pending_theta ≔ cand" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_44" org.eventb.core.assignment="upd_pending ≔ TRUE" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_45" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="AcceptThetaUpdate">
+        <org.eventb.core.guard name="_46" org.eventb.core.label="grd1" org.eventb.core.predicate="upd_pending = TRUE" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_47" org.eventb.core.label="grd2" org.eventb.core.predicate="pending_theta ∈ Theta_safe" org.eventb.core.theorem="false"/>
+        <org.eventb.core.action name="_48" org.eventb.core.assignment="theta ≔ pending_theta" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_49" org.eventb.core.assignment="upd_pending ≔ FALSE" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_50" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="RejectThetaUpdate">
+        <org.eventb.core.guard name="_51" org.eventb.core.label="grd1" org.eventb.core.predicate="upd_pending = TRUE" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_52" org.eventb.core.label="grd2" org.eventb.core.predicate="pending_theta ∉ Theta_safe" org.eventb.core.theorem="false"/>
+        <org.eventb.core.action name="_53" org.eventb.core.assignment="upd_pending ≔ FALSE" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_54" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="ArmAway">
+        <org.eventb.core.refinesEvent name="_55" org.eventb.core.target="ArmAway"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_56" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="EnterAway">
+        <org.eventb.core.refinesEvent name="_57" org.eventb.core.target="EnterAway"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_58" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Disarm">
+        <org.eventb.core.refinesEvent name="_59" org.eventb.core.target="Disarm"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_60" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SetHumidity">
+        <org.eventb.core.refinesEvent name="_61" org.eventb.core.target="SetHumidity"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>

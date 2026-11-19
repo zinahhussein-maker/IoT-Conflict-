@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.extendsContext name="_1" org.eventb.core.target="FARIoT_C0"/>
+<org.eventb.core.carrierSet name="_2" org.eventb.core.identifier="THETA"/>
+<org.eventb.core.constant name="_3" org.eventb.core.identifier="score"/>
+<org.eventb.core.constant name="_4" org.eventb.core.identifier="pref"/>
+<org.eventb.core.constant name="_5" org.eventb.core.identifier="Critical"/>
+<org.eventb.core.constant name="_6" org.eventb.core.identifier="Theta_safe"/>
+<org.eventb.core.constant name="_7" org.eventb.core.identifier="theta0"/>
+<org.eventb.core.axiom name="_8" org.eventb.core.label="axm1" org.eventb.core.predicate="score ∈ THETA → (RULE → ℤ)" org.eventb.core.theorem="false"/>
+<org.eventb.core.axiom name="_9" org.eventb.core.label="axm2" org.eventb.core.predicate="pref ∈ THETA × RULE × RULE → RULE" org.eventb.core.theorem="false"/>
+<org.eventb.core.axiom name="_10" org.eventb.core.label="axm3" org.eventb.core.predicate="∀t,r1,r2· t ∈ THETA ∧ r1 ∈ RULE ∧ r2 ∈ RULE ⇒ (score(t)(r1) ≥ score(t)(r2) ⇒ pref(t ↦ r1 ↦ r2) = r1) ∧ (score(t)(r1) &lt; score(t)(r2) ⇒ pref(t ↦ r1 ↦ r2) = r2)" org.eventb.core.theorem="false"/>
+<org.eventb.core.axiom name="_11" org.eventb.core.label="axm4" org.eventb.core.predicate="Critical = {door_lock}" org.eventb.core.theorem="false"/>
+<org.eventb.core.axiom name="_12" org.eventb.core.label="axm5" org.eventb.core.predicate="Theta_safe = {t ∣ t ∈ THETA ∧ (∀a,b· a ∈ RULE ∧ b ∈ RULE ∧ act_dev(a) ∈ Critical ∧ act_dev(b) = act_dev(a) ∧ act_val(a) = LOCKED ∧ act_val(b) = UNLOCKED ⇒ score(t)(a) &gt; score(t)(b))}" org.eventb.core.theorem="false"/>
+<org.eventb.core.axiom name="_13" org.eventb.core.label="axm6" org.eventb.core.predicate="theta0 ∈ Theta_safe" org.eventb.core.theorem="false"/>
+</org.eventb.core.contextFile>

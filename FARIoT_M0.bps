@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.psFile>
+    <org.eventb.core.psStatus name="inv5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="27" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="inv7/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="27" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="20" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="27" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="20" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="20" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Actuate/grd5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="27" org.eventb.core.psManual="true"/>
+    <org.eventb.core.psStatus name="Actuate/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="27" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Actuate/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="27" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Actuate/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="27" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="ArmAway/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="27" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="ArmAway/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="27" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="ArmAway/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="27" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="ArmAway/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="27" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="EnterAway/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="27" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Disarm/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="27" org.eventb.core.psManual="false"/>
+</org.eventb.core.psFile>

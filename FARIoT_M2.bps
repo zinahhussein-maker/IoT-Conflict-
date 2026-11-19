@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.psFile>
+    <org.eventb.core.psStatus name="inv10/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="true"/>
+    <org.eventb.core.psStatus name="inv11/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="true"/>
+    <org.eventb.core.psStatus name="thm1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="true"/>
+    <org.eventb.core.psStatus name="thm1/THM" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="true"/>
+    <org.eventb.core.psStatus name="thm2/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="true"/>
+    <org.eventb.core.psStatus name="thm2/THM" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="true"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv10/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="true"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv11/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="true"/>
+    <org.eventb.core.psStatus name="ResolveConflict/grd9/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="15" org.eventb.core.psManual="true"/>
+    <org.eventb.core.psStatus name="ResolveConflict/grd10/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="15" org.eventb.core.psManual="true"/>
+    <org.eventb.core.psStatus name="ResolveConflict/inv10/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="15" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="ResolveConflict/inv11/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="15" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="ApplyRule/grd7/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="ApplyRule/grd8/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="true"/>
+    <org.eventb.core.psStatus name="ApplyRule/inv10/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="ApplyRule/inv11/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="DeferConflict/grd4/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="DeferConflict/grd5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="DeferConflict/grd6/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="true"/>
+    <org.eventb.core.psStatus name="DeferConflict/grd7/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="true"/>
+    <org.eventb.core.psStatus name="DropRule/grd2/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="DropRule/grd3/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="true"/>
+    <org.eventb.core.psStatus name="ArmAway/inv10/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="ArmAway/inv11/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Disarm/inv10/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="false"/>
+</org.eventb.core.psFile>

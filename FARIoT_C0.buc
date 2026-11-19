@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" version="3">
+    <org.eventb.core.carrierSet name="_1" org.eventb.core.identifier="DEVICE"/>
+    <org.eventb.core.carrierSet name="_2" org.eventb.core.identifier="VALUE"/>
+    <org.eventb.core.carrierSet name="_3" org.eventb.core.identifier="OWNER"/>
+    <org.eventb.core.carrierSet name="_4" org.eventb.core.identifier="RULE"/>
+    <org.eventb.core.constant name="_5" org.eventb.core.identifier="fan"/>
+    <org.eventb.core.constant name="_6" org.eventb.core.identifier="heater"/>
+    <org.eventb.core.constant name="_7" org.eventb.core.identifier="door_lock"/>
+    <org.eventb.core.constant name="_8" org.eventb.core.identifier="ac"/>
+    <org.eventb.core.constant name="_9" org.eventb.core.identifier="humidifier"/>
+    <org.eventb.core.constant name="_10" org.eventb.core.identifier="ON"/>
+    <org.eventb.core.constant name="_11" org.eventb.core.identifier="OFF"/>
+    <org.eventb.core.constant name="_12" org.eventb.core.identifier="LOCKED"/>
+    <org.eventb.core.constant name="_13" org.eventb.core.identifier="UNLOCKED"/>
+    <org.eventb.core.constant name="_14" org.eventb.core.identifier="vendor_default"/>
+    <org.eventb.core.constant name="_15" org.eventb.core.identifier="act_dev"/>
+    <org.eventb.core.constant name="_16" org.eventb.core.identifier="act_val"/>
+    <org.eventb.core.constant name="_17" org.eventb.core.identifier="rule_owner"/>
+    <org.eventb.core.constant name="_18" org.eventb.core.identifier="rule_priority"/>
+    <org.eventb.core.axiom name="_19" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(DEVICE, {fan}, {heater}, {door_lock}, {ac}, {humidifier})" org.eventb.core.theorem="false"/>
+    <org.eventb.core.axiom name="_20" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(VALUE, {ON}, {OFF}, {LOCKED}, {UNLOCKED})" org.eventb.core.theorem="false"/>
+    <org.eventb.core.axiom name="_21" org.eventb.core.label="axm3" org.eventb.core.predicate="vendor_default ∈ OWNER" org.eventb.core.theorem="false"/>
+    <org.eventb.core.axiom name="_22" org.eventb.core.label="axm4" org.eventb.core.predicate="act_dev ∈ RULE → DEVICE" org.eventb.core.theorem="false"/>
+    <org.eventb.core.axiom name="_23" org.eventb.core.label="axm5" org.eventb.core.predicate="act_val ∈ RULE → VALUE" org.eventb.core.theorem="false"/>
+    <org.eventb.core.axiom name="_24" org.eventb.core.label="axm6" org.eventb.core.predicate="rule_owner ∈ RULE → OWNER" org.eventb.core.theorem="false"/>
+    <org.eventb.core.axiom name="_25" org.eventb.core.label="axm7" org.eventb.core.predicate="rule_priority ∈ RULE → ℕ" org.eventb.core.theorem="false"/>
+    <org.eventb.core.axiom name="_26" org.eventb.core.label="axm8" org.eventb.core.predicate="∀r· r ∈ RULE ⇒ (act_dev(r) = door_lock ⇔ act_val(r) ∈ {LOCKED, UNLOCKED})" org.eventb.core.theorem="false"/>
+</org.eventb.core.contextFile>

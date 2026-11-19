@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.seesContext name="_1" org.eventb.core.target="FARIoT_C0"/>
+    <org.eventb.core.variable name="_2" org.eventb.core.identifier="state"/>
+    <org.eventb.core.variable name="_3" org.eventb.core.identifier="away_mode"/>
+    <org.eventb.core.variable name="_4" org.eventb.core.identifier="armed"/>
+    <org.eventb.core.variable name="_5" org.eventb.core.identifier="humid_high"/>
+    <org.eventb.core.invariant name="_6" org.eventb.core.label="inv1" org.eventb.core.predicate="state ∈ DEVICE → VALUE" org.eventb.core.theorem="false"/>
+    <org.eventb.core.invariant name="_7" org.eventb.core.label="inv2" org.eventb.core.predicate="away_mode ∈ BOOL" org.eventb.core.theorem="false"/>
+    <org.eventb.core.invariant name="_8" org.eventb.core.label="inv3" org.eventb.core.predicate="armed ∈ BOOL" org.eventb.core.theorem="false"/>
+    <org.eventb.core.invariant name="_9" org.eventb.core.label="inv4" org.eventb.core.predicate="humid_high ∈ BOOL" org.eventb.core.theorem="false"/>
+    <org.eventb.core.invariant name="_10" org.eventb.core.label="inv5" org.eventb.core.predicate="state(fan) = ON ⇒ state(heater) ≠ ON" org.eventb.core.theorem="false"/>
+    <org.eventb.core.invariant name="_11" org.eventb.core.label="inv6" org.eventb.core.predicate="away_mode = TRUE ⇒ armed = TRUE" org.eventb.core.theorem="false"/>
+    <org.eventb.core.invariant name="_12" org.eventb.core.label="inv7" org.eventb.core.predicate="∀d· d ∈ DEVICE ⇒ (d = door_lock ⇒ state(d) ∈ {LOCKED, UNLOCKED})" org.eventb.core.theorem="false"/>
+    <org.eventb.core.event name="_13" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_14" org.eventb.core.assignment="state ≔ {fan ↦ OFF, heater ↦ OFF, door_lock ↦ LOCKED, ac ↦ OFF, humidifier ↦ OFF}" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_15" org.eventb.core.assignment="away_mode ≔ FALSE" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="_16" org.eventb.core.assignment="armed ≔ FALSE" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="_17" org.eventb.core.assignment="humid_high ≔ FALSE" org.eventb.core.label="act4"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_18" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Actuate">
+        <org.eventb.core.parameter name="_19" org.eventb.core.identifier="d"/>
+        <org.eventb.core.parameter name="_20" org.eventb.core.identifier="v"/>
+        <org.eventb.core.parameter name="_21" org.eventb.core.identifier="ns"/>
+        <org.eventb.core.guard name="_22" org.eventb.core.label="grd1" org.eventb.core.predicate="d ∈ DEVICE" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_23" org.eventb.core.label="grd2" org.eventb.core.predicate="v ∈ VALUE" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_24" org.eventb.core.label="grd3" org.eventb.core.predicate="d = door_lock ⇔ v ∈ {LOCKED, UNLOCKED}" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_25" org.eventb.core.label="grd4" org.eventb.core.predicate="ns = state  {d ↦ v}" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_26" org.eventb.core.label="grd5" org.eventb.core.predicate="ns(fan) = ON ⇒ ns(heater) ≠ ON" org.eventb.core.theorem="false"/>
+        <org.eventb.core.action name="_27" org.eventb.core.assignment="state ≔ ns" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_28" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="ArmAway">
+        <org.eventb.core.guard name="_29" org.eventb.core.label="grd1" org.eventb.core.predicate="armed = FALSE" org.eventb.core.theorem="false"/>
+        <org.eventb.core.action name="_30" org.eventb.core.assignment="armed ≔ TRUE" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_31" org.eventb.core.assignment="state(door_lock) ≔ LOCKED" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_32" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="EnterAway">
+        <org.eventb.core.guard name="_33" org.eventb.core.label="grd1" org.eventb.core.predicate="armed = TRUE" org.eventb.core.theorem="false"/>
+        <org.eventb.core.guard name="_34" org.eventb.core.label="grd2" org.eventb.core.predicate="away_mode = FALSE" org.eventb.core.theorem="false"/>
+        <org.eventb.core.action name="_35" org.eventb.core.assignment="away_mode ≔ TRUE" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_36" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Disarm">
+        <org.eventb.core.guard name="_37" org.eventb.core.label="grd1" org.eventb.core.predicate="armed = TRUE" org.eventb.core.theorem="false"/>
+        <org.eventb.core.action name="_38" org.eventb.core.assignment="armed ≔ FALSE" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_39" org.eventb.core.assignment="away_mode ≔ FALSE" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_40" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="SetHumidity">
+        <org.eventb.core.parameter name="_41" org.eventb.core.identifier="h"/>
+        <org.eventb.core.guard name="_42" org.eventb.core.label="grd1" org.eventb.core.predicate="h ∈ BOOL" org.eventb.core.theorem="false"/>
+        <org.eventb.core.action name="_43" org.eventb.core.assignment="humid_high ≔ h" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>

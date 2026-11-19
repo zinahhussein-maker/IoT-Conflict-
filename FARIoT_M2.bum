@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+<org.eventb.core.refinesMachine name="_1" org.eventb.core.target="FARIoT_M1"/>
+<org.eventb.core.seesContext name="_2" org.eventb.core.target="FARIoT_C0"/>
+<org.eventb.core.variable name="_3" org.eventb.core.identifier="state"/>
+<org.eventb.core.variable name="_4" org.eventb.core.identifier="away_mode"/>
+<org.eventb.core.variable name="_5" org.eventb.core.identifier="armed"/>
+<org.eventb.core.variable name="_6" org.eventb.core.identifier="humid_high"/>
+<org.eventb.core.variable name="_7" org.eventb.core.identifier="triggered"/>
+<org.eventb.core.variable name="_8" org.eventb.core.identifier="winner"/>
+<org.eventb.core.invariant name="_9" org.eventb.core.label="inv10" org.eventb.core.predicate="armed = TRUE ⇒ state(door_lock) = LOCKED" org.eventb.core.theorem="false"/>
+<org.eventb.core.invariant name="_10" org.eventb.core.label="inv11" org.eventb.core.predicate="state(ac) = ON ⇒ state(humidifier) ≠ ON" org.eventb.core.theorem="false"/>
+<org.eventb.core.invariant name="_11" org.eventb.core.label="thm1" org.eventb.core.predicate="away_mode = TRUE ⇒ state(door_lock) = LOCKED" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="_12" org.eventb.core.label="thm2" org.eventb.core.predicate="humid_high = TRUE ∧ state(ac) = ON ⇒ state(humidifier) ≠ ON" org.eventb.core.theorem="true"/>
+<org.eventb.core.event name="_13" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
+</org.eventb.core.event>
+<org.eventb.core.event name="_14" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="TriggerRules">
+<org.eventb.core.refinesEvent name="_15" org.eventb.core.target="TriggerRules"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_16" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="ResolveConflict">
+<org.eventb.core.refinesEvent name="_17" org.eventb.core.target="ResolveConflict"/>
+<org.eventb.core.guard name="_18" org.eventb.core.label="grd9" org.eventb.core.predicate="armed = TRUE ⇒ ns(door_lock) = LOCKED" org.eventb.core.theorem="false"/>
+<org.eventb.core.guard name="_19" org.eventb.core.label="grd10" org.eventb.core.predicate="ns(ac) = ON ⇒ ns(humidifier) ≠ ON" org.eventb.core.theorem="false"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_20" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="ApplyRule">
+<org.eventb.core.refinesEvent name="_21" org.eventb.core.target="ApplyRule"/>
+<org.eventb.core.guard name="_22" org.eventb.core.label="grd7" org.eventb.core.predicate="armed = TRUE ⇒ ns(door_lock) = LOCKED" org.eventb.core.theorem="false"/>
+<org.eventb.core.guard name="_23" org.eventb.core.label="grd8" org.eventb.core.predicate="ns(ac) = ON ⇒ ns(humidifier) ≠ ON" org.eventb.core.theorem="false"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_24" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="DeferConflict">
+<org.eventb.core.refinesEvent name="_25" org.eventb.core.target="DeferConflict"/>
+<org.eventb.core.parameter name="_26" org.eventb.core.identifier="n1"/>
+<org.eventb.core.parameter name="_27" org.eventb.core.identifier="n2"/>
+<org.eventb.core.guard name="_28" org.eventb.core.label="grd4" org.eventb.core.predicate="n1 = state  {act_dev(r1) ↦ act_val(r1)}" org.eventb.core.theorem="false"/>
+<org.eventb.core.guard name="_29" org.eventb.core.label="grd5" org.eventb.core.predicate="n2 = state  {act_dev(r2) ↦ act_val(r2)}" org.eventb.core.theorem="false"/>
+<org.eventb.core.guard name="_30" org.eventb.core.label="grd6" org.eventb.core.predicate="¬((n1(fan) = ON ⇒ n1(heater) ≠ ON) ∧ (humid_high = TRUE ∧ n1(ac) = ON ⇒ n1(humidifier) ≠ ON) ∧ (away_mode = TRUE ⇒ n1(door_lock) = LOCKED) ∧ (armed = TRUE ⇒ n1(door_lock) = LOCKED) ∧ (n1(ac) = ON ⇒ n1(humidifier) ≠ ON))" org.eventb.core.theorem="false"/>
+<org.eventb.core.guard name="_31" org.eventb.core.label="grd7" org.eventb.core.predicate="¬((n2(fan) = ON ⇒ n2(heater) ≠ ON) ∧ (humid_high = TRUE ∧ n2(ac) = ON ⇒ n2(humidifier) ≠ ON) ∧ (away_mode = TRUE ⇒ n2(door_lock) = LOCKED) ∧ (armed = TRUE ⇒ n2(door_lock) = LOCKED) ∧ (n2(ac) = ON ⇒ n2(humidifier) ≠ ON))" org.eventb.core.theorem="false"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_32" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="DropRule">
+<org.eventb.core.refinesEvent name="_33" org.eventb.core.target="DropRule"/>
+<org.eventb.core.parameter name="_34" org.eventb.core.identifier="n"/>
+<org.eventb.core.guard name="_35" org.eventb.core.label="grd2" org.eventb.core.predicate="n = state  {act_dev(r) ↦ act_val(r)}" org.eventb.core.theorem="false"/>
+<org.eventb.core.guard name="_36" org.eventb.core.label="grd3" org.eventb.core.predicate="¬((n(fan) = ON ⇒ n(heater) ≠ ON) ∧ (humid_high = TRUE ∧ n(ac) = ON ⇒ n(humidifier) ≠ ON) ∧ (away_mode = TRUE ⇒ n(door_lock) = LOCKED) ∧ (armed = TRUE ⇒ n(door_lock) = LOCKED) ∧ (n(ac) = ON ⇒ n(humidifier) ≠ ON))" org.eventb.core.theorem="false"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_37" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="ArmAway">
+<org.eventb.core.refinesEvent name="_38" org.eventb.core.target="ArmAway"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_39" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="EnterAway">
+<org.eventb.core.refinesEvent name="_40" org.eventb.core.target="EnterAway"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_41" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Disarm">
+<org.eventb.core.refinesEvent name="_42" org.eventb.core.target="Disarm"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_43" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SetHumidity">
+<org.eventb.core.refinesEvent name="_44" org.eventb.core.target="SetHumidity"/>
+</org.eventb.core.event>
+</org.eventb.core.machineFile>
